@@ -1,3 +1,14 @@
+// Static export compatible - use environment variable or default
+const getOrigin = () => {
+  if (process.env.NEXT_PUBLIC_SITE_URL) {
+    return process.env.NEXT_PUBLIC_SITE_URL
+  }
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`
+  }
+  return 'https://charmai.in'
+}
+
 const URLS = [
   { url: "/", priority: "1.0", changefreq: "weekly" },
   { url: "/#pricing", priority: "0.9", changefreq: "weekly" },
@@ -7,8 +18,8 @@ const URLS = [
   { url: "/3D-architecture-visualization-studio", priority: "0.9", changefreq: "weekly" },
 ]
 
-export async function GET(request: Request) {
-  const { origin } = new URL(request.url)
+export async function GET() {
+  const origin = getOrigin()
   const lastmod = new Date().toISOString()
 
   const body = `<?xml version="1.0" encoding="UTF-8"?>

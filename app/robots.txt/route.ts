@@ -1,5 +1,16 @@
-export async function GET(request: Request) {
-  const { origin } = new URL(request.url)
+// Static export compatible - use environment variable or default
+const getOrigin = () => {
+  if (process.env.NEXT_PUBLIC_SITE_URL) {
+    return process.env.NEXT_PUBLIC_SITE_URL
+  }
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`
+  }
+  return 'https://charmai.in'
+}
+
+export async function GET() {
+  const origin = getOrigin()
 
   const lines = [
     "# robots.txt for Skitbit — allow AI crawlers and search engines",
