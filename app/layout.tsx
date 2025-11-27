@@ -8,6 +8,7 @@ import { Suspense } from "react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
 import { Toaster } from "@/components/ui/toaster"
+import { AppLoader } from "@/components/app-loader"
 
 const inter = Inter({ subsets: ["latin"], display: "swap" })
 
@@ -82,6 +83,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body>
+        <AppLoader />
         <Suspense fallback={null}>
           <div className="fixed inset-0 z-0 bg-black">
             <LazyVideo
