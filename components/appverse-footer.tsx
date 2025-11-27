@@ -5,7 +5,6 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Instagram, Twitter, Youtube, MessageCircle, Code, Zap, Shield, Users } from "lucide-react"
-import LazyVideo from "./lazy-video"
 import Image from "next/image"
 
 interface FooterContent {
@@ -95,26 +94,65 @@ export function AppverseFooter() {
             {/* Right mockup */}
             <div className="mx-auto w-full max-w-[320px]">
               <div className="relative rounded-[28px] liquid-glass p-2 shadow-2xl">
-                <div className="relative aspect-[9/19] w-full overflow-hidden rounded-2xl bg-black">
-                  {/* Lazy-loaded video fills the screen */}
-                  <LazyVideo
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Timeline%202-YFaCK7cEiHWSMRv8XEHaLCoYj2SUAi.mp4"
-                    className="absolute inset-0 h-full w-full object-cover"
-                    autoplay={true}
-                    loop={true}
-                    muted={true}
-                    playsInline={true}
-                    aria-label="Skitbit app preview - approvals made easy"
-                  />
+                <div className="relative aspect-[9/19] w-full overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-blue-900/50 to-slate-800">
+                  {/* Web Development Background Pattern */}
+                  <div className="absolute inset-0 opacity-20">
+                    {/* Code-like grid pattern */}
+                    <div className="absolute inset-0" style={{
+                      backgroundImage: `
+                        linear-gradient(rgba(96, 165, 250, 0.1) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(96, 165, 250, 0.1) 1px, transparent 1px)
+                      `,
+                      backgroundSize: '20px 20px'
+                    }} />
+                    {/* Floating code elements */}
+                    <div className="absolute top-10 left-4 text-blue-400/30 font-mono text-xs">
+                      {'<div>'}
+                    </div>
+                    <div className="absolute top-20 left-8 text-blue-400/30 font-mono text-xs">
+                      {'className="..."'}
+                    </div>
+                    <div className="absolute top-32 left-4 text-blue-400/30 font-mono text-xs">
+                      {'</div>'}
+                    </div>
+                    <div className="absolute bottom-20 right-4 text-blue-400/30 font-mono text-xs">
+                      {'const app = () => {'}
+                    </div>
+                    <div className="absolute bottom-12 right-8 text-blue-400/30 font-mono text-xs">
+                      {'return <App />'}
+                    </div>
+                  </div>
+                  
+                  {/* Web Development Icon/Visual */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="relative">
+                      {/* Code brackets */}
+                      <div className="text-blue-400/40 text-6xl font-mono font-bold">
+                        {'{ }'}
+                      </div>
+                      {/* Tech stack icons representation */}
+                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex gap-2">
+                        <div className="w-2 h-2 rounded-full bg-blue-400/50 animate-pulse" />
+                        <div className="w-2 h-2 rounded-full bg-blue-400/50 animate-pulse [animation-delay:0.2s]" />
+                        <div className="w-2 h-2 rounded-full bg-blue-400/50 animate-pulse [animation-delay:0.4s]" />
+                      </div>
+                    </div>
+                  </div>
+
                   {/* On-screen content */}
-                  <div className="relative p-3">
-                    <div className="mx-auto mb-3 h-1.5 w-16 rounded-full bg-white/20" />
+                  <div className="relative z-10 p-3 h-full flex flex-col justify-between">
+                    <div className="mx-auto h-1.5 w-16 rounded-full bg-white/20" />
                     <div className="space-y-1 px-1">
-                      <div className="text-5xl font-extrabold text-blue-400">Development Made Easy</div>
+                      <div className="text-5xl font-extrabold text-blue-400 drop-shadow-[0_0_20px_rgba(96,165,250,0.5)]">Development Made Easy</div>
                       <p className="text-xs text-white/80">From concept to deployment in a single flow</p>
                       <div className="mt-3 inline-flex items-center rounded-full bg-black/40 px-2 py-0.5 text-[10px] uppercase tracking-wider text-blue-400">
                         Full Stack
                       </div>
+                    </div>
+                    <div className="flex gap-2 justify-center pb-2">
+                      <div className="w-8 h-8 rounded-lg bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-blue-400 text-xs font-mono">R</div>
+                      <div className="w-8 h-8 rounded-lg bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-blue-400 text-xs font-mono">N</div>
+                      <div className="w-8 h-8 rounded-lg bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-blue-400 text-xs font-mono">M</div>
                     </div>
                   </div>
                 </div>
